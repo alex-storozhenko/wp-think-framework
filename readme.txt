@@ -22,6 +22,6 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 
 == Changelog ==
 
-= 1.0 - May 14 2017 =
+= 1.0 - May 15 2017 =
 * Initial release
 * Add server requirements and short description how to install
