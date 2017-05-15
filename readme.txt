@@ -25,3 +25,7 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 = 1.0 - May 15 2017 =
 * Initial release
 * Add server requirements and short description how to install
+
+= 1.0.1 - May 15 2017 =
+* Fix critical bug Think_Metaboxes::create()
+* Fix small bug with enqueue assets for Think_Metaboxes

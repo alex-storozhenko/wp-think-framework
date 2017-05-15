@@ -23,6 +23,8 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		final protected function __construct( $post_type, $place ) {
 			$this->placement = $place;
 			$this->post_type = $post_type;
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_assets' ) );
 		}
 
 		/** Add js and css */
@@ -103,9 +105,11 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		 *
 		 * @param string $post_type
 		 * @param string $place
+		 *
+		 * @return static
 		 */
 		public static function create( $post_type = 'post', $place = 'normal' ) {
-			new static( $post_type, $place );
+			return new static( $post_type, $place );
 		}
 
 		/**
