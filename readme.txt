@@ -24,3 +24,4 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 
 = 1.0 - May 14 2017 =
 * Initial release
+* Add server requirements and short description how to install
