@@ -40,3 +40,4 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Added possibility use inputs for different initiators
 * Fix small bugs
 * Fix critical error in Think_Customizer::create()
+* Rework server requirements
