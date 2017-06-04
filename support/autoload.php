@@ -1,10 +1,15 @@
 <?php
 
-//source list
-require __DIR__ . '/traits/Cut.php';
-require __DIR__ . '/traits/Auto_Ajax.php';
-require __DIR__ . '/traits/Auto_Shortcodes.php';
-
-require __DIR__ . '/Think_Abstract_Handler.php';
-require __DIR__ . '/Think_Json_Response.php';
-require __DIR__ . '/Think_Generate_Labels.php';
+/**
+ * Source list for autoload files
+ *
+ * @package wp-think-framework
+ */
+require __DIR__ . '/class-think-helper.php';
+require __DIR__ . '/traits/trait-think-fields-walker.php';
+require __DIR__ . '/traits/trait-think-auto-ajax.php';
+require __DIR__ . '/traits/trait-think-auto-shortcode.php';
+require __DIR__ . '/traits/trait-think-can-verify-nonce.php';
+require __DIR__ . '/class-think-json-response.php';
+require __DIR__ . '/class-think-abstract-handler.php';
+require __DIR__ . '/class-think-generate-labels.php';

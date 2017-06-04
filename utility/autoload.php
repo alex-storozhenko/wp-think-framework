@@ -1,4 +1,8 @@
 <?php
 
-//source list
-require __DIR__ . '/Think_Singleton.php';
+/**
+ * Source list for autoload files
+ *
+ * @package wp-think-framework
+ */
+require __DIR__ . '/trait-think-singleton.php';

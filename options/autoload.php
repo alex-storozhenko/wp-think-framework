@@ -1,5 +1,9 @@
 <?php
 
-//source list
-require __DIR__ . '/Think_Config.php';
-require __DIR__ . '/Think_Options.php';
+/**
+ * Source list for autoload files
+ *
+ * @package wp-think-framework
+ */
+require __DIR__ . '/templates/class-think-options-page-template.php';
+require __DIR__ . '/class-think-options.php';

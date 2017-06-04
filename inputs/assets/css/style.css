@@ -1,0 +1,155 @@
+.wp-think-framework.hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.wp-think-framework.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wp-think-framework.popup-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+}
+
+.wp-think-framework.popup-preview-image {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 50%;
+    position: relative;
+    transition: all 5s ease-in-out;
+    -webkit-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 25px 0px rgba(0, 0, 0, 0.75);
+}
+
+.wp-think-framework.popup-preview-image .image {
+    width: 100%;
+    margin: 0px;
+    max-height: 600px;
+    max-width: 800px;
+    padding: 40px 0px 0px 0px;
+}
+
+.wp-think-framework.popup-preview-image-title {
+    font-size: 20px;
+    position: absolute;
+    margin-left: 0px;
+}
+
+.wp-think-framework.popup-preview-image .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.wp-think-framework.popup-preview-image .content {
+    max-height: 50%;
+    overflow: auto;
+}
+
+.wp-think-framework.popup-overlay.hidden {
+    z-index: 0;
+}
+
+.wp-think-framework.popup-overlay.visible {
+    z-index: 1000;
+}
+
+.wp-think-framework.think-metaboxes .label-title {
+    position: relative;
+    margin: 0;
+}
+
+.wp-think-framework.think-metaboxes.row {
+    margin: 0
+}
+
+.wp-think-framework.think-metaboxes.row:after {
+    content: "";
+    display: block;
+    clear: both
+}
+
+.wp-think-framework.think-metaboxes.row .col {
+    float: left;
+    padding: 5px;
+    box-sizing: border-box
+}
+
+.wp-think-framework.think-metaboxes.row .col-12 {
+    width: 100%
+}
+
+.wp-think-framework.think-metaboxes.row .col-6 {
+    width: 50%
+}
+
+.wp-think-framework.think-metaboxes.row .col-4 {
+    width: 33%
+}
+
+.wp-think-framework.think-metaboxes.row .col-3 {
+    width: 25%
+}
+
+.wp-think-framework.think-metaboxes.row .col-2 {
+    width: 16.66%
+}
+
+.wp-think-framework.think-options .label-title {
+    position: absolute;
+    margin-top: -20px;
+    margin-left: -160px;
+    text-decoration: underline;
+    font-size: 12px;
+}
+
+.wp-think-framework.think-options .label-title.label-title-color.think-input-color {
+    margin-left: -125px;
+}
+
+.wp-think-framework.think-options .label-title.label-title-image.think-input-image {
+    margin-left: -163px;
+}
+
+.wp-think-framework.think-options .label-title.label-title-tinymce.think-input-tinymce {
+    display: none;
+}
+
+.wp-think-framework.think-options .label-title.label-title-check.think-input-checkbox {
+    position: relative;
+    margin: 0px;
+}
+
+.wp-think-framework.think-options .label-title.label-title-radio.think-input-radio {
+    position: relative;
+    margin: 0px 15px 0px 0px;
+}
+
+.wp-think-framework.think-options .label-title.label-title-textarea.think-input-textarea {
+    margin-left: -965px;
+}
+
+@media screen and (max-width: 782px) {
+    .wp-think-framework.popup-preview-image {
+        width: 70%;
+    }
+
+    .wp-think-framework.think-options .label-title {
+        display: none;
+    }
+}
