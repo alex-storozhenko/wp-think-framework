@@ -1,13 +1,9 @@
 (function ($) {
     'use strict';
 
-    $(document).ready(function () {
-        var $wrapper = $('.wp-think-framework.input-area-image');
-        var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
-        var $preview_button = $wrapper.find('.button-group > .preview-image');
-        var $preview_img = $preview_popup.children().children('img');
-        var $url_input = $wrapper.find('.input-text');
+    var $wrapper = $('.wp-think-framework.input-area-image');
 
+    $(document).ready(function () {
         var toggle_func = function (htmlElement) {
             if (htmlElement.hasClass('hidden')) {
                 htmlElement.removeClass('hidden');
@@ -21,6 +17,11 @@
         $wrapper.on('click', '.button-group > .call-media', function (e) {
             e.preventDefault();
 
+            var $wrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
+            var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
+            var $preview_button = $wrapper.find('.button-group > .preview-image');
+            var $preview_img = $preview_popup.children().children('img');
+            var $url_input = $wrapper.find('.input-text');
             var send_attachment_bkp = wp.media.editor.send.attachment;
 
             wp.media.editor.send.attachment = function (props, attachment) {
@@ -41,6 +42,12 @@
         $wrapper.on('click', '.button-group > .remove-image', function (e) {
             e.preventDefault();
 
+            var $wrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
+            var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
+            var $preview_button = $wrapper.find('.button-group > .preview-image');
+            var $preview_img = $preview_popup.children().children('img');
+            var $url_input = $wrapper.find('.input-text');
+
             if (!$preview_popup.hasClass('hidden')) {
                 toggle_func($preview_popup);
             }
@@ -53,11 +60,16 @@
         $wrapper.on('click', '.button-group > .preview-image', function (e) {
             e.preventDefault();
 
+            var $wrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
+            var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
+
             toggle_func($preview_popup);
         });
 
         $wrapper.on('click', '.popup-preview-image > .close', function (e) {
             e.preventDefault();
+
+            var $preview_popup = $(this).closest('.wp-think-framework.popup-overlay');
 
             toggle_func($preview_popup);
         });
