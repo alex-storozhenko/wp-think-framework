@@ -30,7 +30,7 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Fix critical bug Think_Metaboxes::create()
 * Fix small bug with enqueue assets for Think_Metaboxes
 
-= 1.8.4 -  =
+= 1.8.5 -  =
 * Global refactor according WordPress codestyle
 * Refactor include assets
 * Rework metabox registration
@@ -43,3 +43,4 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Rework server requirements
 * Composer init
 * Add CSS to metabox inputs
+* Fix uploader button with multiple image inputs
