@@ -1,6 +1,6 @@
 # wp-think-framework
 
-WordPress Think Framework gives you the ability to quickly and easily create incredible websites with WordPress. It Is an extensible framework for WordPress themes development. Based on the WordPress APIs.
+WordPress Think Framework is a developer-oriented library that gives you the ability to quickly and easily create incredible websites with WordPress. This is an extensible framework for developing WordPress themes. Based on the WordPress API.
 
 #### Server Requirements:
 

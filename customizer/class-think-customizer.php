@@ -11,7 +11,6 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 	class Think_Customizer {
 
 		/**
-		 *
 		 * Code example:
 		 *
 		 * [

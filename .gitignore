@@ -18,3 +18,4 @@ wp-content/plugins/hello.php
 
 .idea/
 /nbproject/private/
+/vendor/
