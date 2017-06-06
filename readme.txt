@@ -41,3 +41,5 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Fix small bugs
 * Fix critical error in Think_Customizer::create()
 * Rework server requirements
+* Composer init
+* Add CSS to metabox inputs

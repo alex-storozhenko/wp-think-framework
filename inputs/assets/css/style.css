@@ -1,3 +1,11 @@
+.wp-think-framework.button-group {
+    margin: 5px 0px;
+}
+
+.wp-think-framework.label-title.label-title-tinymce.think-input-tinymce {
+    display: none;
+}
+
 .wp-think-framework.hidden {
     visibility: hidden;
     opacity: 0;
@@ -126,10 +134,6 @@
     margin-left: -163px;
 }
 
-.wp-think-framework.think-options .label-title.label-title-tinymce.think-input-tinymce {
-    display: none;
-}
-
 .wp-think-framework.think-options .label-title.label-title-check.think-input-checkbox {
     position: relative;
     margin: 0px;
@@ -142,6 +146,33 @@
 
 .wp-think-framework.think-options .label-title.label-title-textarea.think-input-textarea {
     margin-left: -965px;
+}
+
+.wp-think-framework.think-metaboxes.input-area {
+    margin: 25px 5px 20px 5px;
+}
+
+.wp-think-framework.think-metaboxes .label-title {
+    position: absolute;
+    margin: -47px 0px 0px 2px;
+    text-decoration: underline;
+    padding-top: 2px;
+}
+
+.wp-think-framework.think-metaboxes .input, .textarea {
+    width: 100%;
+}
+
+.wp-think-framework.think-metaboxes .label-title.label-title-color.think-input-color {
+    margin: -20px 0px 0px -124px;
+}
+
+.wp-think-framework.think-metaboxes .label-title.label-title-date.think-input-date {
+    margin: -20px 0px 0px -159px;
+}
+
+.wp-think-framework.think-metaboxes .label-title.label-title-textarea.think-input-textarea {
+    margin: 0px 0px 0px 0px;
 }
 
 @media screen and (max-width: 782px) {

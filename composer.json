@@ -3,6 +3,7 @@
   "description": "WordPress Think Framework is a developer-oriented library that gives you the ability to quickly and easily create incredible websites with WordPress. This is an extensible framework for developing WordPress themes. Based on the WordPress API.",
   "type": "library",
   "license": "GPL v3.0",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "alex-storojenko",
@@ -10,6 +11,12 @@
       "role": "Developer"
     }
   ],
-  "minimum-stability": "stable",
-  "autoload": "wp-think-framework.php"
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "files": [
+      "wp-think-framework.php"
+    ]
+  }
 }

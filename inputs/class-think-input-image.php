@@ -31,7 +31,7 @@ if ( ! class_exists( 'Think_Input_Image' ) ) {
 			?>
             <div class="wp-think-framework <?= Think_Helper::str_snake_to_kebab( get_class( $this->initiator ) ); ?> input-area input-area-image input-area-image-<?= $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>">
                 <label class="wp-think-framework input-label label-image label-image-<?= $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>">
-                    <input class="wp-think-framework input-text input-text-<?= $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>"
+                    <input class="wp-think-framework input input-text input-text-<?= $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>"
                            type="text" name="<?= $this->initiator->get_key(); ?>[<?= $this->id ?>]"
                            id="<?= $this->id ?>" value="<?= $value ?>"/>
                     <span class="wp-think-framework label-title label-title-image label-title-image-<?= $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>"><?= $this->label; ?></span>

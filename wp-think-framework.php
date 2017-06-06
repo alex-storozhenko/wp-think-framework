@@ -10,7 +10,7 @@ require __DIR__ . '/utility/autoload.php';
 define( 'THINK_FRAMEWORK_VERSION', '1.7.3' );
 
 define( 'THINK_FRAMEWORK_PATH', trailingslashit( dirname( __FILE__ ) ) );
-define( 'THINK_FRAMEWORK_URI', get_template_directory_uri() . '/' . basename( THINK_FRAMEWORK_PATH ) );
+define( 'THINK_FRAMEWORK_URI', get_template_directory_uri() . '\/' . basename( THINK_FRAMEWORK_PATH ) );
 
 if ( ! class_exists( 'Think_Framework' ) ) {
 	/**
