@@ -2,7 +2,7 @@
 
 if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Customize_Control' ) ) {
 	/**
-	 * Render WP Editor in customizer
+	 * Render WP Editor input in customizer
 	 *
 	 * Class Think_Customize_TinyMCE_Control
 	 *
@@ -12,10 +12,6 @@ if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Cu
 		public $type = 'textarea';
 
 		public function __construct( WP_Customize_Manager $manager, $id, array $args = array() ) {
-			add_action( 'customize_controls_enqueue_scripts', function () {
-				$this->enqueue_assets();
-			} );
-
 			parent::__construct( $manager, $id, $args );
 		}
 
@@ -23,6 +19,7 @@ if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Cu
 		public function render_content() {
 			?>
             <div class="wp-think-framework <?= Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?> customizer-input-area customizer-input-area-tinyMCE customizer-input-area-tinyMCE-<?= $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>">
+                <div class="wp-think-framework customizer-input-description customizer-input-description-tinyMCE customizer-input-description-tinyMCE-<?= $this->id; ?>"><?= esc_attr( $this->description ); ?></div>
                 <label class="wp-think-framework customizer-label-input customizer-label-input-tinyMCE customizer-label-input-tinyMCE-<?= $this->id; ?>">
 					<?php
 					add_filter( 'the_editor', function ( $output ) {
@@ -43,11 +40,6 @@ if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Cu
             </div>
 			<?php
 			do_action( 'admin_print_footer_scripts' );
-		}
-
-		/** Enqueue special assets */
-		protected function enqueue_assets() {
-			wp_enqueue_script( 'wp-think-framework-editor-customizer', THINK_FRAMEWORK_URI . '/customizer/assets/js/customizer.tiny-mce.js', array( 'jquery' ), THINK_FRAMEWORK_VERSION, true );
 		}
 	}
 }
