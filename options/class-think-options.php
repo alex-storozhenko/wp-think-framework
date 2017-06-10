@@ -32,8 +32,8 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		 *  by_pattern_input, //if chosen it you need add sanitize_pattern(Regex value) to array of input
 		 *  none_sanitize_input
 		 *
-		 * Code example:
-		 * [
+		 * <code>
+		 *[
 		 *     //section_id in do_settings_fields( $slug, $section['id'] );
 		 *     'social' => [
 		 *          'title' //display name of section  => 'Social',
@@ -77,7 +77,8 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		 *             ],
 		 *          ]
 		 *     ],
-		 * ];
+		 *];
+		 *</code>
 		 *
 		 * @var array $structure
 		 */

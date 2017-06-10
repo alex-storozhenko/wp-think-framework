@@ -2,13 +2,6 @@
 
 if ( ! class_exists( 'Think_Input_Checkbox' ) ) {
 	class Think_Input_Checkbox extends Think_Abstract_Input {
-
-		public function __construct( Think_Input_Initiator $initiator, $id, $label, array $options ) {
-			$this->enqueue_assets();
-
-			parent::__construct( $initiator, $id, $label, $options );
-		}
-
 		/** Render */
 		public function render() {
 			?>
@@ -24,8 +17,8 @@ if ( ! class_exists( 'Think_Input_Checkbox' ) ) {
 			<?php
 		}
 
-		/** Enqueue special assets*/
-		public function enqueue_assets() {
+		/** Enqueue special assets */
+		protected function enqueue_assets() {
 			wp_enqueue_script( 'wp-think-framework-init-checkbox', THINK_FRAMEWORK_URI . '/inputs/assets/js/init.checkbox.js', array(
 				'jquery',
 			), THINK_FRAMEWORK_VERSION, true );

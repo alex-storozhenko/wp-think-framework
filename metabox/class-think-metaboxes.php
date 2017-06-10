@@ -35,7 +35,7 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		 *  by_pattern_input, //if chosen it you need add sanitize_pattern(Regex value) to array of input
 		 *  none_sanitize_input
 		 *
-		 * Code example:
+		 * <code>
 		 *[
 		 *  //metabox_id
 		 *  'social'   => [
@@ -108,6 +108,7 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		 *      ]
 		 *  ],
 		 *];
+		 * </code>
 		 *
 		 * @var array $structure
 		 */

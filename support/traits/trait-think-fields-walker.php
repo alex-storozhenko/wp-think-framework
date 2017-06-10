@@ -40,7 +40,7 @@ if ( ! trait_exists( 'Think_Fields_Walker' ) ) {
 				$fields = array();
 
 				foreach ( $field['fields'] as $child_field ) {
-					$fields = array_merge( $fields, $this->walk_deeper_level( $child_field ) );
+					$fields = array_merge( $this->walk_deeper_level( $child_field ), $fields );
 				}
 
 				return $fields;

@@ -4,7 +4,7 @@
     var $wrapper = $('.wp-think-framework.input-area-image');
 
     $(document).ready(function () {
-        var toggle_func = function (htmlElement) {
+        var togglebyClass = function (htmlElement) {
             if (htmlElement.hasClass('hidden')) {
                 htmlElement.removeClass('hidden');
                 htmlElement.addClass('visible');
@@ -17,23 +17,23 @@
         $wrapper.on('click', '.button-group > .call-media', function (e) {
             e.preventDefault();
 
-            var $wrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
-            var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
-            var $preview_button = $wrapper.find('.button-group > .preview-image');
-            var $preview_img = $preview_popup.children().children('img');
-            var $url_input = $wrapper.find('.input-text');
-            var send_attachment_bkp = wp.media.editor.send.attachment;
+            var $localWrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
+            var $previewPopup = $localWrapper.find('.wp-think-framework.popup-overlay');
+            var $previewButton = $localWrapper.find('.button-group > .preview-image');
+            var $previewImg = $preview_popup.children().children('img');
+            var $urlInput = $localWrapper.find('.input-text');
+            var sendAttachmentBkp = wp.media.editor.send.attachment;
 
             wp.media.editor.send.attachment = function (props, attachment) {
-                $preview_button.removeAttr('disabled', 'disabled');
-                $preview_img.attr('src', attachment.url);
-                $url_input.val(attachment.url);
+                $previewButton.removeAttr('disabled', 'disabled');
+                $previewImg.attr('src', attachment.url);
+                $urlInput.val(attachment.url);
 
-                if (!$preview_popup.hasClass('visible')) {
-                    toggle_func($preview_popup);
+                if (!$previewPopup.hasClass('visible')) {
+                    togglebyClass($previewPopup);
                 }
 
-                wp.media.editor.send.attachment = send_attachment_bkp;
+                wp.media.editor.send.attachment = sendAttachmentBkp;
             };
 
             wp.media.editor.open();
@@ -42,36 +42,36 @@
         $wrapper.on('click', '.button-group > .remove-image', function (e) {
             e.preventDefault();
 
-            var $wrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
-            var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
-            var $preview_button = $wrapper.find('.button-group > .preview-image');
-            var $preview_img = $preview_popup.children().children('img');
-            var $url_input = $wrapper.find('.input-text');
+            var $localWrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
+            var $previewPopup = $localWrapper.find('.wp-think-framework.popup-overlay');
+            var $previewButton = $localWrapper.find('.button-group > .preview-image');
+            var $urlInput = $localWrapper.find('.input-text');
+            var $previewImg = $previewPopup.children().children('img');
 
-            if (!$preview_popup.hasClass('hidden')) {
-                toggle_func($preview_popup);
+            if (!$previewPopup.hasClass('hidden')) {
+                togglebyClass($previewPopup);
             }
 
-            $preview_button.attr('disabled', 'disabled');
-            $preview_img.attr('src', 'javascript:;');
-            $url_input.val('');
+            $previewButton.attr('disabled', 'disabled');
+            $previewImg.attr('src', 'javascript:;');
+            $urlInput.val('');
         });
 
         $wrapper.on('click', '.button-group > .preview-image', function (e) {
             e.preventDefault();
 
-            var $wrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
-            var $preview_popup = $wrapper.find('.wp-think-framework.popup-overlay');
+            var $localWrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
+            var $previewPopup = $localWrapper.find('.wp-think-framework.popup-overlay');
 
-            toggle_func($preview_popup);
+            togglebyClass($previewPopup);
         });
 
         $wrapper.on('click', '.popup-preview-image > .close', function (e) {
             e.preventDefault();
 
-            var $preview_popup = $(this).closest('.wp-think-framework.popup-overlay');
+            var $previewPopup = $(this).closest('.wp-think-framework.popup-overlay');
 
-            toggle_func($preview_popup);
+            togglebyClass($previewPopup);
         });
     });
 })(jQuery);
