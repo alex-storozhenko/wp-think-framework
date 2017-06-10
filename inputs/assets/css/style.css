@@ -1,60 +1,77 @@
 .inside::before, .inside::after {
-  content: '';
-  display: table; }
+    content: '';
+    display: table;
+}
 
 .inside::after {
-  clear: both; }
+    clear: both;
+}
 
 .wp-think-framework label {
-  cursor: default; }
+    cursor: default;
+}
 
 .wp-think-framework .label-title {
-  cursor: pointer; }
+    cursor: pointer;
+}
 
 .wp-think-framework.button-group {
-  margin-left: 15px; }
+    margin-left: 15px;
+}
 
 .wp-think-framework.label-title.label-title-tinymce.think-input-tinymce {
-  display: none; }
+    display: none;
+}
 
 .wp-think-framework.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  -webkit-transition: opacity 500ms;
-  -o-transition: opacity 500ms;
-  transition: opacity 500ms; }
-  .wp-think-framework.popup-overlay.hidden {
-    z-index: 0; }
-  .wp-think-framework.popup-overlay.visible {
-    z-index: 1000; }
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.wp-think-framework.popup-overlay.hidden {
+    z-index: 0;
+}
+
+.wp-think-framework.popup-overlay.visible {
+    -webkit-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+    z-index: 10000;
+}
 
 .wp-think-framework.popup-preview-image {
-  position: relative;
-  width: 50%;
-  margin: 70px auto;
-  padding: 20px;
-  border-radius: 5px;
-  background: #fff;
-  -webkit-box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.75);
-          box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.75);
-  -webkit-transition: all 5s ease-in-out;
-  -o-transition: all 5s ease-in-out;
-  transition: all 5s ease-in-out; }
-  .wp-think-framework.popup-preview-image-title {
+    position: relative;
+    width: 50%;
+    margin: 70px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background: #fff;
+    -webkit-box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 25px 0 rgba(0, 0, 0, 0.75);
+    -webkit-transition: all 5s ease-in-out;
+    -o-transition: all 5s ease-in-out;
+    transition: all 5s ease-in-out;
+}
+
+.wp-think-framework.popup-preview-image-title {
     position: absolute;
     margin-left: 0;
-    font-size: 20px; }
-  .wp-think-framework.popup-preview-image .image {
+    font-size: 20px;
+}
+
+.wp-think-framework.popup-preview-image .image {
     width: 100%;
     max-width: 800px;
     max-height: 600px;
     margin: 0;
-    padding: 40px 0 0; }
-  .wp-think-framework.popup-preview-image .close {
+    padding: 40px 0 0;
+}
+
+.wp-think-framework.popup-preview-image .close {
     position: absolute;
     top: 15px;
     right: 20px;
@@ -64,120 +81,165 @@
     text-decoration: none;
     -webkit-transition: all 200ms;
     -o-transition: all 200ms;
-    transition: all 200ms; }
-  .wp-think-framework.popup-preview-image .content {
+    transition: all 200ms;
+}
+
+.wp-think-framework.popup-preview-image .content {
     max-height: 50%;
-    overflow: auto; }
+    overflow: auto;
+}
 
 .wp-think-framework.think-metaboxes, .wp-think-framework.think-options {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end; }
-  .wp-think-framework.think-metaboxes .input-label, .wp-think-framework.think-options .input-label {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.wp-think-framework.think-metaboxes .input-label, .wp-think-framework.think-options .input-label {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
     -ms-flex-preferred-size: 50%;
-        flex-basis: 50%; }
-    .wp-think-framework.think-metaboxes .input-label:not(:first-child), .wp-think-framework.think-options .input-label:not(:first-child) {
-      margin-left: 15px; }
-  .wp-think-framework.think-metaboxes .label-radio,
-  .wp-think-framework.think-metaboxes .label-check, .wp-think-framework.think-options .label-radio,
-  .wp-think-framework.think-options .label-check {
+    flex-basis: 50%;
+}
+
+.wp-think-framework.think-metaboxes .input-label:not(:first-child), .wp-think-framework.think-options .input-label:not(:first-child) {
+    margin-left: 15px;
+}
+
+.wp-think-framework.think-metaboxes .label-radio,
+.wp-think-framework.think-metaboxes .label-check, .wp-think-framework.think-options .label-radio,
+.wp-think-framework.think-options .label-check {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
     -ms-flex-preferred-size: auto;
-        flex-basis: auto; }
-  .wp-think-framework.think-metaboxes .label-title, .wp-think-framework.think-options .label-title {
+    flex-basis: auto;
+}
+
+.wp-think-framework.think-metaboxes .label-title, .wp-think-framework.think-options .label-title {
     margin-bottom: 5px;
     font-size: 13px;
-    font-weight: 400; }
-  .wp-think-framework.think-metaboxes .wp-picker-container, .wp-think-framework.think-options .wp-picker-container {
+    font-weight: 400;
+}
+
+.wp-think-framework.think-metaboxes .wp-picker-container, .wp-think-framework.think-options .wp-picker-container {
     position: relative;
     min-width: 300px;
-    z-index: 1; }
-  .wp-think-framework.think-metaboxes .wp-color-result, .wp-think-framework.think-options .wp-color-result {
-    float: left; }
-  .wp-think-framework.think-metaboxes .wp-picker-input-wrap, .wp-think-framework.think-options .wp-picker-input-wrap {
+    z-index: 1;
+}
+
+.wp-think-framework.think-metaboxes .wp-color-result, .wp-think-framework.think-options .wp-color-result {
+    float: left;
+}
+
+.wp-think-framework.think-metaboxes .wp-picker-input-wrap, .wp-think-framework.think-options .wp-picker-input-wrap {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     float: left;
     -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; }
-  .wp-think-framework.think-metaboxes .wp-picker-holder, .wp-think-framework.think-options .wp-picker-holder {
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.wp-think-framework.think-metaboxes .wp-picker-holder, .wp-think-framework.think-options .wp-picker-holder {
     position: absolute;
     top: 100%;
-    left: 0; }
+    left: 0;
+}
 
 .wp-think-framework.think-metaboxes {
-  width: 100%; }
-  .wp-think-framework.think-metaboxes.row {
+    width: 100%;
+}
+
+.wp-think-framework.think-metaboxes.row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
     -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
     -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin: 0 -10px; }
-    .wp-think-framework.think-metaboxes.row .col {
-      -webkit-box-sizing: border-box;
-              box-sizing: border-box;
-      -webkit-box-flex: 1;
-          -ms-flex: 1 0 auto;
-              flex: 1 0 auto;
-      width: auto;
-      padding: 0 10px; }
-  .wp-think-framework.think-metaboxes .input-label {
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: 0 -10px;
+}
+
+.wp-think-framework.think-metaboxes.row .col {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    width: auto;
+    padding: 0 10px;
+}
+
+.wp-think-framework.think-metaboxes .input-label {
     -ms-flex-preferred-size: 100%;
-        flex-basis: 100%; }
-  .wp-think-framework.think-metaboxes .label-radio,
-  .wp-think-framework.think-metaboxes .label-check {
+    flex-basis: 100%;
+}
+
+.wp-think-framework.think-metaboxes .label-radio,
+.wp-think-framework.think-metaboxes .label-check {
     -ms-flex-preferred-size: auto;
-        flex-basis: auto; }
-  .wp-think-framework.think-metaboxes.input-area {
-    margin: 10px 0; }
-  .wp-think-framework.think-metaboxes .input-date,
-  .wp-think-framework.think-metaboxes .textarea {
-    width: 100%; }
-  .wp-think-framework.think-metaboxes .textarea {
-    width: 100%; }
+    flex-basis: auto;
+}
+
+.wp-think-framework.think-metaboxes.input-area {
+    margin: 10px 0;
+}
+
+.wp-think-framework.think-metaboxes .input-date,
+.wp-think-framework.think-metaboxes .textarea {
+    width: 100%;
+}
+
+.wp-think-framework.think-metaboxes .textarea {
+    width: 100%;
+}
 
 @media screen and (max-width: 782px) {
-  .wp-think-framework.popup-preview-image {
-    width: 70%; }
-  .wp-think-framework.think-options .input-label .label-title {
-    display: none; }
-  .wp-think-framework.think-options .label-radio .label-title,
-  .wp-think-framework.think-options .label-check .label-title {
-    display: block; }
-  .wp-think-framework.think-options .wp-color-result {
-    margin: 6px 10px 6px 0; } }
+    .wp-think-framework.popup-preview-image {
+        width: 70%;
+    }
+
+    .wp-think-framework.think-options .input-label .label-title {
+        display: none;
+    }
+
+    .wp-think-framework.think-options .label-radio .label-title,
+    .wp-think-framework.think-options .label-check .label-title {
+        display: block;
+    }
+
+    .wp-think-framework.think-options .wp-color-result {
+        margin: 6px 10px 6px 0;
+    }
+}
 
 .wp-think-framework.hidden {
-  opacity: 0;
-  visibility: hidden; }
+    opacity: 0;
+    visibility: hidden;
+}
 
 .wp-think-framework.visible {
-  opacity: 1;
-  visibility: visible; }
+    opacity: 1;
+    visibility: visible;
+}

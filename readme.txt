@@ -30,7 +30,7 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Fix critical bug Think_Metaboxes::create()
 * Fix small bug with enqueue assets for Think_Metaboxes
 
-= 1.10.8 - June 10 2017 =
+= 1.11.9 - June 11 2017 =
 * Global refactor according WordPress codestyle
 * Refactor include assets
 * Rework metabox registration
@@ -51,3 +51,5 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Customizer preview script with auto value binding for registered customize sittings
 * Rework customizer to singleton
 * Add date type of control to customize
+* Refactor CSS
+* Fix bug preview image popup

@@ -20,7 +20,7 @@
             var $localWrapper = $(this).parent('.button-group').parent('.wp-think-framework.input-area-image');
             var $previewPopup = $localWrapper.find('.wp-think-framework.popup-overlay');
             var $previewButton = $localWrapper.find('.button-group > .preview-image');
-            var $previewImg = $preview_popup.children().children('img');
+            var $previewImg = $previewPopup.children().children('img');
             var $urlInput = $localWrapper.find('.input-text');
             var sendAttachmentBkp = wp.media.editor.send.attachment;
 
