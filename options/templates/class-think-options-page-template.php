@@ -48,7 +48,7 @@ if ( ! class_exists( 'Think_Options_Page_Template' ) ) {
 					?>
                 </h2>
 
-                <div id="tabs">
+                <div id="tabs" class="tabs">
                     <form method="POST" action="<?= 'options.php'; ?>">
 						<?php
 						foreach ( (array) $wp_settings_sections[ $slug ] as $id => $section ) {
