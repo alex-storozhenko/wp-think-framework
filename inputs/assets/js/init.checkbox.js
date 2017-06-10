@@ -2,11 +2,11 @@
     'use strict';
 
     $('.wp-think-framework > .input-check').on('change', function () {
-        var $self = $(this);
-        $self.val(false);
+        var $_self = $(this);
+        $_self.val(false);
 
         if (this.checked) {
-            $self.val(true);
+            $_self.val(true);
         }
     });
 })(jQuery);

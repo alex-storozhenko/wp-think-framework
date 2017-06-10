@@ -9,22 +9,6 @@ if ( ! class_exists( 'Think_Input_Image' ) ) {
 	 * @package wp-think-framework
 	 */
 	class Think_Input_Image extends Think_Abstract_Input {
-
-		/**
-		 * Think_Input_Image constructor
-		 *
-		 * @param Think_Input_Initiator $initiator
-		 * @param $id
-		 * @param $label
-		 * @param array $options
-		 */
-		public function __construct( Think_Input_Initiator $initiator, $id, $label, array $options ) {
-			$this->enqueue_assets();
-
-			parent::__construct( $initiator, $id, $label, $options );
-
-		}
-
 		/** Render */
 		public function render() {
 			$value = $this->get_value();
@@ -52,7 +36,7 @@ if ( ! class_exists( 'Think_Input_Image' ) ) {
 			<?php
 		}
 
-		/** Enqueue assets */
+		/** Enqueue special assets */
 		protected function enqueue_assets() {
 			wp_enqueue_media();
 			wp_enqueue_script( 'wp-think-framework-init-uploader', THINK_FRAMEWORK_URI . '/inputs/assets/js/init.uploader.js', array( 'jquery' ), THINK_FRAMEWORK_VERSION, true );

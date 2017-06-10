@@ -1,21 +1,6 @@
 <?php
 if ( ! class_exists( 'Think_Input_Color' ) ) {
 	class Think_Input_Color extends Think_Abstract_Input {
-		/**
-		 * Think_Input_Color constructor
-		 *
-		 * @param Think_Input_Initiator $initiator
-		 * @param $id
-		 * @param $label
-		 * @param array $options
-		 */
-		public function __construct( Think_Input_Initiator $initiator, $id, $label, array $options ) {
-			$this->enqueue_assets();
-
-			parent::__construct( $initiator, $id, $label, $options );
-
-		}
-
 		/** Render */
 		public function render() {
 			?>

@@ -34,6 +34,25 @@ if ( ! class_exists( 'Think_Helper' ) ) {
 		}
 
 		/**
+		 * Convert snake to camel
+		 *
+		 * @param $snake_str
+		 *
+		 * @return mixed
+		 */
+		public static function str_snake_to_camel( $snake_str ) {
+			$arr = explode( '_', strtolower( $snake_str ) );
+
+			for ( $i = 0, $c = count( $arr ); $i < $c; $i ++ ) {
+				if ( $i > 0 ) {
+					$arr[ $i ] = ucfirst( $arr[ $i ] );
+				}
+			}
+
+			return implode( '', $arr );
+		}
+
+		/**
 		 * Cut prefix
 		 *
 		 * @param string $name

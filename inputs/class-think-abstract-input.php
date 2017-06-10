@@ -10,7 +10,7 @@ if ( ! class_exists( 'Think_Abstract_Input' ) ) {
 	 */
 	abstract class Think_Abstract_Input implements Think_Input {
 		/**
-		 * Manager Class
+		 * Class input caller
 		 *
 		 * @var Think_Input_Initiator $initiator
 		 */
@@ -51,20 +51,41 @@ if ( ! class_exists( 'Think_Abstract_Input' ) ) {
 			$this->label     = $label;
 			$this->options   = $options;
 
+			/**
+			 * Since version 3.3
+			 * Wp_enqueue_script() can be called at the time the page is generated.
+			 * In this case, the called script will be connected in the basement,
+			 * at the moment when wp_footer events are triggered.
+			 *
+			 * It is necessary for dynamic connection of scripts and styles
+			 * during the generation of input
+			 */
 			$this->enqueue_assets();
 		}
 
-		/** @return string */
+		/**
+		 * Get Id
+		 *
+		 * @return string
+		 */
 		public function get_id() {
 			return $this->id;
 		}
 
-		/** @return string */
+		/**
+		 * Get label
+		 *
+		 * @return string
+		 */
 		public function get_label() {
 			return $this->label;
 		}
 
-		/** @return array */
+		/**
+		 * Get options
+		 *
+		 * @return array
+		 */
 		public function get_options() {
 			return $this->options;
 		}

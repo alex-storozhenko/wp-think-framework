@@ -12,5 +12,6 @@ WordPress Think Framework is a developer-oriented library that gives you the abi
 
 1. Download framework from Github repo - https://github.com/alex-storojenko/wp-think-framework
 2. Extract and copy folder with files of framework to theme dir({wp-installation-folder}/wp-content/themes/{your-theme-directory})
-3. Include wp-think-framework.php to functions.php of your theme(require_once get_template_directory() . '/{wp-think-framework_root_dir}/wp-think-framework.php')
-4. Create something amazing
+3. OR You can copy folder with framework somewhere.
+4. Include wp-think-framework.php to functions.php of your theme(require_once get_template_directory() . '/{wp-think-framework_root_dir}/wp-think-framework.php')
+5. Create something amazing

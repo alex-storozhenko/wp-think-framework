@@ -14,7 +14,6 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 * Code example:
 		 *
 		 * [
-		 *   "data" => [
 		 *      [
 		 *          "section" => [
 		 *              "id" => "banner",
@@ -30,7 +29,6 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 *              ]
 		 *          ],
 		 *      ]
-		 *   ]
 		 * ]
 		 *
 		 * @var array $structure
@@ -43,10 +41,15 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 * @param $structure
 		 */
 		protected function __construct( $structure ) {
-			$this->structure = json_decode( json_encode( $structure, false ) );
+			$this->structure = $structure;
 
-			add_action( 'customize_register', array( $this, 'customize_register' ) );
-			add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) );
+			add_action( 'customize_register', function ( $wp_customize ) {
+				$this->customize_register( $wp_customize );
+			} );
+
+			add_action( 'customize_preview_init', function () {
+				$this->js_for_preview();
+			} );
 		}
 
 		/**
@@ -76,8 +79,15 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		}
 
 		/** Enqueue assets */
-		public function customize_preview_init() {
-			wp_enqueue_script( 'theme-customizer', THINK_FRAMEWORK_URI . 'customizer/assets/js/customizer.js', [], THINK_FRAMEWORK_VERSION );
+		protected function js_for_preview() {
+			wp_enqueue_script( 'wp-think-framework-customizer', THINK_FRAMEWORK_URI . '/customizer/assets/js/customizer.preview.js', array(
+				'jquery',
+				'customize-preview'
+			), THINK_FRAMEWORK_VERSION, true );
+
+			wp_localize_script( 'wp-think-framework-customizer', Think_Helper::str_snake_to_camel( get_class( $this ) ), array(
+				'structure' => $this->structure,
+			) );
 		}
 
 		/**
@@ -85,37 +95,48 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 *
 		 * @param WP_Customize_Manager $wp_customize
 		 */
-		public function customize_register( \WP_Customize_Manager $wp_customize ) {
+		protected function customize_register( \WP_Customize_Manager $wp_customize ) {
 
-			if ( ! empty( $this->structure->data ) ) {
-				foreach ( $this->structure->data as $section ) {
-					$section = $section->section;
+			if ( ! empty( $this->structure ) ) {
+				foreach ( $this->structure as $section ) {
 
-					$wp_customize->add_section( $section->id, array(
-						"title"    => $section->title,
-						"priority" => ( ! empty( $section->priority ) ) ? $section->priority : 1
+					$wp_customize->add_section( $section['id'], array(
+						'title'    => $section['title'],
+						'priority' => ( ! empty( $section['priority'] ) ) ? $section['priority'] : 1
 					) );
 
-					if ( ! empty( $section->controls ) ) {
-						foreach ( $section->controls as $setting ) {
-							$default = ( ! empty( $setting->default ) ) ? $setting->default : '';
-							$type    = ( ! empty( $setting->type ) ) ? $setting->type : 'input';
+					if ( ! empty( $section['controls'] ) ) {
+						$firstly = true;
 
-							$wp_customize->add_setting( $setting->id, array(
-								"default"   => $default,
-								"transport" => "postMessage",
+						foreach ( $section['controls'] as $setting ) {
+							$default = ( empty( $setting['default'] ) ) ? '' : $setting['default'];
+							$type    = ( ! empty( $setting['type'] ) ) ? $setting['type'] : 'input';
+
+							$wp_customize->add_setting( $setting['id'], array(
+								'default' => $default,
 							) );
 
-							$wp_customize->get_setting( $setting->id )->transport = 'postMessage';
+							$wp_customize->get_setting( $setting['id'] )->transport = 'postMessage';
 
 							$class_args = array(
-								"label"    => $setting->label,
-								"section"  => $section->id,
-								"settings" => $setting->id,
-								"type"     => $type,
+								'label'    => $setting['label'],
+								'section'  => $section['id'],
+								'settings' => $setting['id'],
+								'type'     => $type,
 							);
 
-							$wp_customize->add_control( $this->get_control( $wp_customize, $setting->id, $class_args, $setting->type ) );
+							if ( $type === 'cropped_image' ) {
+								$class_args = array_merge( $class_args, array(
+									'width'  => ( empty( $setting['width'] ) ) ? 512 : $setting['width'],
+									'height' => ( empty( $setting['height'] ) ) ? 512 : $setting['height']
+								) );
+							} elseif ( $type === 'radio' ) {
+								$class_args = array_merge( $class_args, array(
+									'choices' => ( empty( $setting['choices'] ) ) ? array() : $setting['choices']
+								) );
+							}
+
+							$wp_customize->add_control( $this->get_control( $wp_customize, $setting['id'], $class_args, $type ) );
 						}
 					}
 				}
@@ -137,6 +158,19 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 			switch ( $type ) {
 				case 'image':
 					return new WP_Customize_Image_Control( $wp_customize, $setting_id, $class_args );
+					break;
+
+				case 'cropped_image':
+					return new WP_Customize_Cropped_Image_Control( $wp_customize, $setting_id, $class_args );
+					break;
+
+				case 'color':
+				case 'background_color':
+					return new WP_Customize_Color_Control( $wp_customize, $setting_id, $class_args );
+					break;
+
+				case 'tinyMCE':
+					return new Think_Customize_TinyMCE_Control( $wp_customize, $setting_id, $class_args );
 					break;
 
 				default:
