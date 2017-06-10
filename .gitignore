@@ -17,3 +17,6 @@ wp-content/plugins/hello.php
 /sitemap.xml.gz
 
 .idea/
+/nbproject/private/
+/vendor/
+node_modules/

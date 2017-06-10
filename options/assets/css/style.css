@@ -1,0 +1,14 @@
+.tabs {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    background: #fff;
+}
+
+.tabs .tab_content {
+    display: none;
+}
+
+.tabs .form-table {
+    margin: 0;
+}
