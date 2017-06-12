@@ -54,5 +54,5 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Refactor CSS
 * Fix bug preview image popup
 
-= 1.12.9 - June 12 2017 =
+= 1.12.0 - June 12 2017 =
 * Change mechanism of framework installation
