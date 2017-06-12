@@ -53,3 +53,6 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Add date type of control to customize
 * Refactor CSS
 * Fix bug preview image popup
+
+= 1.12.0 - June 12 2017 =
+* Change mechanism of framework installation

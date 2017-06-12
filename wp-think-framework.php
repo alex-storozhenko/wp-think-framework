@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require __DIR__ . '/utility/autoload.php';
 
 /** @const string version of framework */
-define( 'THINK_FRAMEWORK_VERSION', '1.11.9' );
+define( 'THINK_FRAMEWORK_VERSION', '1.12.0' );
 
 define( 'THINK_FRAMEWORK_PATH', trailingslashit( dirname( __FILE__ ) ) );
 define( 'THINK_FRAMEWORK_URI', get_template_directory_uri() . '\/' . basename( THINK_FRAMEWORK_PATH ) );
@@ -45,6 +45,3 @@ if ( ! class_exists( 'Think_Framework' ) ) {
 		}
 	}
 }
-
-//Init framework instance
-Think_Framework::get_instance();
