@@ -45,6 +45,3 @@ if ( ! class_exists( 'Think_Framework' ) ) {
 		}
 	}
 }
-
-//Init framework instance
-Think_Framework::get_instance();
