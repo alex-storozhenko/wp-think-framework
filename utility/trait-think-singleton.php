@@ -17,7 +17,7 @@ if ( ! trait_exists( 'Think_Singleton' ) ) {
 		 *
 		 * According with realization singleton
 		 */
-		static private $instance = null;
+		protected static $instance = null;
 
 		/**
 		 * Singleton constructor
@@ -25,7 +25,8 @@ if ( ! trait_exists( 'Think_Singleton' ) ) {
 		 *
 		 * According with realization singleton
 		 */
-		private function __construct() {
+		protected function __construct() {
+			//
 		}
 
 		/**
@@ -37,7 +38,7 @@ if ( ! trait_exists( 'Think_Singleton' ) ) {
 		 */
 		public static function get_instance() {
 			if ( null === static::$instance ) {
-				static::$instance = new self();
+				static::$instance = new static();
 			}
 
 			return static::$instance;
@@ -49,6 +50,7 @@ if ( ! trait_exists( 'Think_Singleton' ) ) {
 		 * According with realization singleton
 		 */
 		private function __clone() {
+			//
 		}
 
 		/**
@@ -56,7 +58,8 @@ if ( ! trait_exists( 'Think_Singleton' ) ) {
 		 *
 		 * According with realization singleton
 		 */
-		private function __wakeup() {
+		protected function __wakeup() {
+			//
 		}
 	}
 }
