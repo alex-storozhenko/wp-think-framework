@@ -13,11 +13,11 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		/**
 		 * @var $instance
 		 *
-		 * Container for only one exemplar of @self
+		 * Container for only one exemplar of @static
 		 *
 		 * According with realization singleton
 		 */
-		static private $instance = null;
+		protected static $instance = null;
 
 		/**
 		 * <code>
@@ -294,7 +294,7 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		}
 
 		/**
-		 * Method returned only one exemplar of @self
+		 * Method returned only one exemplar of @static
 		 *
 		 * According with realization singleton
 		 *
@@ -302,9 +302,9 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 *
 		 * @return mixed
 		 */
-		public static function customizer( array $structure ) {
+		public static function instance( array $structure ) {
 			if ( null === static::$instance ) {
-				static::$instance = new self( $structure );
+				static::$instance = new static( $structure );
 			}
 
 			return static::$instance;
@@ -316,6 +316,7 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 * According with realization singleton
 		 */
 		private function __clone() {
+			//
 		}
 
 		/**
@@ -323,7 +324,8 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 *
 		 * According with realization singleton
 		 */
-		private function __wakeup() {
+		protected function __wakeup() {
+			//
 		}
 	}
 }
