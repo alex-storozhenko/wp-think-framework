@@ -57,6 +57,6 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 = 1.12.0 - June 12 2017 =
 * Change mechanism of framework installation
 
-= 1.12.2 - June 13 2017 =
+= 1.13.2 - June 13 2017 =
 * Fix small bags
 * And Change Think_Customizer caller Think_Customizer::customizer($structure) to Think_Customizer::instance($structure)
