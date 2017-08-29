@@ -81,7 +81,7 @@ if ( ! class_exists( 'Think_Options_Page_Template' ) ) {
             </div>
 			<?php
 
-            $content = ob_end_clean();
+            $content = ob_end_flush();
 
             return $content;
 		}
