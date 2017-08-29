@@ -28,7 +28,7 @@ if ( ! class_exists( 'Think_Input_Image' ) ) {
                 <div id="popup-<?= $this->id; ?>" class="wp-think-framework popup-overlay hidden">
                     <div class="wp-think-framework popup-preview-image">
                         <span class="wp-think-framework popup-preview-image-title">Image preview</span>
-                        <img class="wp-think-framework image" src="<?= $value ?: 'javascript:;' ?>"/>
+                        <img class="wp-think-framework image" src="<?= $value ?: '#' ?>"/>
                         <a class="close" href="javascript:;">&times;</a>
                     </div>
                 </div>

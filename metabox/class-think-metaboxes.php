@@ -214,27 +214,6 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		}
 
 		/**
-		 * Get fields
-		 *
-		 * @param null $metabox_id
-		 *
-		 * @return bool|array
-		 */
-		public function get_fields( $metabox_id = null ) {
-			$fields = array();
-
-			if ( $metabox_id ) {
-				$fields = $this->walk_fields( $this->structure[ $metabox_id ]['fields'] );
-			} else {
-				foreach ( $this->structure as $section_id => $section ) {
-					$fields = array_merge( $fields, $this->walk_fields( $section['fields'] ) );
-				}
-			}
-
-			return $fields;
-		}
-
-		/**
 		 * Add metabox logic
 		 *
 		 * @param string $id
@@ -245,7 +224,9 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 			add_meta_box( $id, $title, function () use ( $fields ) {
 				if ( $fields ) {
 					foreach ( $fields as $field ) {
-						( Think_Input_Factory::make( $this, $field ) )->render();
+						$input = Think_Input_Factory::make( $this, $field );
+
+						$input->render();
 					}
 				}
 			}, $this->post_type, $this->place, $this->priority );

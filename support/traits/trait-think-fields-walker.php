@@ -10,6 +10,13 @@ if ( ! trait_exists( 'Think_Fields_Walker' ) ) {
 	 */
 	trait Think_Fields_Walker {
 		/**
+		 * Fields structure
+		 *
+		 * @var array
+		 */
+		protected $structure;
+
+		/**
 		 * Fields Walker
 		 *
 		 * @param array $fields
@@ -45,6 +52,27 @@ if ( ! trait_exists( 'Think_Fields_Walker' ) ) {
 
 				return $fields;
 			}
+		}
+
+		/**
+		 * Get fields
+		 *
+		 * @param null $key
+		 *
+		 * @return bool|array
+		 */
+		public function get_fields( $key = null ) {
+			$fields = array();
+
+			if ( $key ) {
+				$fields = $this->walk_fields( $this->structure[ $key ]['fields'] );
+			} else {
+				foreach ( $this->structure as $section ) {
+					$fields = array_merge( $fields, $this->walk_fields( $section['fields'] ) );
+				}
+			}
+
+			return $fields;
 		}
 	}
 }

@@ -1,6 +1,5 @@
-=== wp-think-framework ===
-
-Contributors: Alex Storozhenko
+=== WP Think Framework ===
+Contributors: allrain
 Tags: wordpress-framework, theme-framework, options-framework
 
 Requires at least: 4.0
@@ -17,20 +16,22 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 
 1. Download framework from Github repo - https://github.com/alex-storojenko/wp-think-framework
 2. Extract and copy folder with files of framework to theme dir({wp-installation-folder}/wp-content/themes/{your-theme-directory})
-3. Include wp-think-framework.php to functions.php of your theme(require_once get_template_directory() . '/wp-think-framework/wp-think-framework.php')
-4. Create something amazing
+3. OR You can copy folder with framework somewhere.
+4. Include wp-think-framework.php to functions.php of your theme(require_once get_template_directory() . '/{wp-think-framework_root_dir}/wp-think-framework.php')
+5. (exclude this until wp-think-framework1.12.* version) Create instance of framework - Think_Framework::get_instance() in functions.php of your current theme;
+6. Create something amazing
 
 == Changelog ==
 
-= 1.0 - May 15 2017 =
+= 1.0 =
 * Initial release
 * Added server requirements and short description how to install
 
-= 1.0.1 - May 15 2017 =
+= 1.0.1 =
 * Fix critical bug Think_Metaboxes::create()
 * Fix small bug with enqueue assets for Think_Metaboxes
 
-= 1.11.9 - June 11 2017 =
+= 1.11.9 =
 * Global refactor according WordPress codestyle
 * Refactor include assets
 * Rework metabox registration
@@ -54,9 +55,14 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Refactor CSS
 * Fix bug preview image popup
 
-= 1.12.0 - June 12 2017 =
+= 1.12.0 =
 * Change mechanism of framework installation
 
-= 1.13.2 - June 13 2017 =
+= 1.13.2 =
 * Fix small bags
 * And Change Think_Customizer caller Think_Customizer::customizer($structure) to Think_Customizer::instance($structure)
+
+= 1.14.0 =
+* Fix small bugs
+* Change Think_Customizer caller Think_Customizer::customize($structure)
+* Add possible multiple uses Think_Customizer::customize();
