@@ -15,12 +15,14 @@ if ( ! class_exists( 'Think_Options_Page_Template' ) ) {
 		 *
 		 * @throws Think_Exception_Bad_Args_For_Called_Func
 		 *
-		 * @return void
+		 * @return string
 		 */
 		public static function render( array $data ) {
 			if ( empty( $data['slug'] ) ) {
 				throw new Think_Exception_Bad_Args_For_Called_Func( 'Required argument "slug" don\'t exist or empty' );
 			}
+
+			ob_start();
 
 			$slug        = $data['slug'];
 			$options_key = $data['options_key'];
@@ -78,6 +80,10 @@ if ( ! class_exists( 'Think_Options_Page_Template' ) ) {
                 </div>
             </div>
 			<?php
+
+            $content = ob_end_flush();
+
+            return $content;
 		}
 	}
 }

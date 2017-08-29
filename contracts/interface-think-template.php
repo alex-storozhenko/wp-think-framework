@@ -9,6 +9,11 @@ if ( ! interface_exists( 'Think_Template' ) ) {
 	 * @package wp-think-framework
 	 */
 	interface Think_Template {
-		public static function render( array $data );
+        /**
+         * render html
+         *
+         * @param array $data
+         */
+	    public static function render( array $data );
 	}
 }

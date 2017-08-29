@@ -166,6 +166,8 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		}
 
 		/**
+         * @inheritdoc
+         *
 		 * Return data from DB by input_id
 		 *
 		 * @param int|null $input_id
@@ -181,6 +183,8 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		}
 
 		/**
+         * @inheritdoc
+         *
 		 * Get key ($this->options_key)
 		 *
 		 * @return mixed
