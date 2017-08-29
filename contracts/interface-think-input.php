@@ -9,14 +9,39 @@ if ( ! interface_exists( 'Think_Input' ) ) {
 	 * @package wp-think-framework
 	 */
 	interface Think_Input {
-		public function get_id();
+        /**
+         * Get unique id of input
+         *
+         * @return mixed
+         */
+	    public function get_id();
 
+        /**
+         * Get label of input
+         *
+         * @return mixed
+         */
 		public function get_label();
 
+        /**
+         * Get options for input
+         *
+         * @return mixed
+         */
 		public function get_options();
 
+        /**
+         * Get value of input
+         *
+         * @return mixed
+         */
 		public function get_value();
 
+        /**
+         * Render html
+         *
+         * @return string
+         */
 		public function render();
 	}
 }

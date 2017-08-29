@@ -165,9 +165,9 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		 * @param string $meta_key
 		 */
 		protected function __construct( $screen, $structure, $context, $priority, $meta_key ) {
-			$this->post_type = $screen;
+			$this->screen    = $screen;
 			$this->structure = $structure;
-			$this->place     = $context;
+			$this->context   = $context;
 			$this->priority  = $priority;
 			$this->meta_key  = $meta_key;
 			$this->nonce_key = $this->screen . $this->meta_key . uniqid( '_' );
@@ -182,6 +182,8 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		}
 
 		/**
+         * @inheritdoc
+         *
 		 * Get data from DB
 		 *
 		 * @param $input_id
@@ -196,6 +198,8 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		}
 
 		/**
+         * @inheritdoc
+         *
 		 * Get meta_key
 		 *
 		 * @return string
@@ -229,7 +233,7 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 						$input->render();
 					}
 				}
-			}, $this->post_type, $this->place, $this->priority );
+			}, $this->screen, $this->context, $this->priority );
 		}
 
 		/**
