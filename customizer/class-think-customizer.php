@@ -11,7 +11,7 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 	class Think_Customizer {
 
 		/**
-		 * @var $instance
+		 * @var null|Think_Customizer $instance
 		 *
 		 * Container for only one exemplar of @static
 		 *
@@ -50,6 +50,7 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		 *            ],
 		 *            [
 		 *                'id'       => 'custom_background',
+		 *                'label'    => 'Background COLOR',
 		 *                'type'     => 'color',
 		 *                'selector' => '.custom-background'
 		 *            ],
@@ -158,9 +159,7 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 		protected $structure = array();
 
 		/** Think_Customizer constructor */
-		protected function __construct( $structure ) {
-			$this->structure = $structure;
-
+		protected function __construct() {
 			add_action( 'customize_preview_init', function () {
 				$this->js_for_preview();
 			} );
@@ -168,6 +167,49 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 			add_action( 'customize_register', function ( $wp_customize ) {
 				$this->customize_register( $wp_customize );
 			} );
+		}
+
+		/**
+		 * Method returned only one exemplar of @static
+		 *
+		 * According with realization singleton
+		 *
+		 * @param array $structure @see Think_Customizer::$structure
+		 *
+		 * @return mixed
+		 */
+		public static function customize( array $structure ) {
+			if ( null === static::$instance ) {
+				static::$instance = new static();
+			}
+
+			static::$instance->merge_structures( $structure );
+
+			return static::$instance;
+		}
+
+		protected function merge_structures( array $structure ) {
+			$this->structure = array_merge( $this->structure, $structure );
+
+			return $this;
+		}
+
+		/**
+		 * Ban on cloning
+		 *
+		 * According with realization singleton
+		 */
+		private function __clone() {
+			//
+		}
+
+		/**
+		 * The ban on unserialization from outside the class
+		 *
+		 * According with realization singleton
+		 */
+		protected function __wakeup() {
+			//
 		}
 
 		/**
@@ -291,41 +333,6 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 					return new WP_Customize_Control( $wp_customize, $setting_id, $class_args );
 					break;
 			}
-		}
-
-		/**
-		 * Method returned only one exemplar of @static
-		 *
-		 * According with realization singleton
-		 *
-		 * @param array $structure
-		 *
-		 * @return mixed
-		 */
-		public static function instance( array $structure ) {
-			if ( null === static::$instance ) {
-				static::$instance = new static( $structure );
-			}
-
-			return static::$instance;
-		}
-
-		/**
-		 * Ban on cloning
-		 *
-		 * According with realization singleton
-		 */
-		private function __clone() {
-			//
-		}
-
-		/**
-		 * The ban on unserialization from outside the class
-		 *
-		 * According with realization singleton
-		 */
-		protected function __wakeup() {
-			//
 		}
 	}
 }

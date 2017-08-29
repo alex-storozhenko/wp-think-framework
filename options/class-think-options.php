@@ -40,7 +40,7 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		 *          'fields' //array of fields => [
 		 *              [
 		 *                  //id is Required. Attention! id must always be unique, otherwise the result will be unexpected.
-		 *                  'id'                => 'facebook'
+		 *                  'id'                => 'facebook',
 		 *                  'label'             => 'Facebook',
 		 *                  'type'              => 'text', //@see @input_types or wp-thinkframework/inputs classes
 		 *                  'options'           => [], //additional options e.g for select [$title => $value]
@@ -166,27 +166,6 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		}
 
 		/**
-		 * Get fields
-		 *
-		 * @param null $section_id
-		 *
-		 * @return bool|array
-		 */
-		public function get_fields( $section_id = null ) {
-			$fields = array();
-
-			if ( $section_id ) {
-				$fields = $this->walk_fields( $this->structure[ $section_id ]['fields'] );
-			} else {
-				foreach ( $this->structure as $section_id => $section ) {
-					$fields = array_merge( $fields, $this->walk_fields( $section['fields'] ) );
-				}
-			}
-
-			return $fields;
-		}
-
-		/**
 		 * Return data from DB by input_id
 		 *
 		 * @param int|null $input_id
@@ -223,7 +202,9 @@ if ( ! class_exists( 'Think_Options' ) ) {
 
 				foreach ( $fields as $field ) {
 					add_settings_field( $field['id'], $field['label'], function ( $field ) {
-						return ( Think_Input_Factory::make( $this, $field ) )->render();
+						$input = Think_Input_Factory::make( $this, $field );
+
+						return $input->render();
 					}, $this->slug, $section_id, $field );
 
 					$this->register_setting( $section_id, $field );
@@ -273,7 +254,7 @@ if ( ! class_exists( 'Think_Options' ) ) {
 		 * @param $options_key
 		 * @param null $input_id
 		 *
-		 * @return $mixed
+		 * @return mixed
 		 */
 		public static function get_options( $options_key, $input_id = null ) {
 			if ( ! $input_id ) {
