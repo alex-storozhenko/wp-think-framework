@@ -66,3 +66,8 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Fix small bugs
 * Change Think_Customizer caller Think_Customizer::customize($structure)
 * Add possible multiple uses Think_Customizer::customize();
+
+= 1.14.1 =
+* Add comments to contract
+* Fix small bugs in metabox factory
+* Add ob in option page template
