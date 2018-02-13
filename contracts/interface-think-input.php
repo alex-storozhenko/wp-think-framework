@@ -1,47 +1,46 @@
 <?php
 
-if ( ! interface_exists( 'Think_Input' ) ) {
-	/**
-	 * Contract for input render
-	 *
-	 * Interface Think_Input
-	 *
-	 * @package wp-think-framework
-	 */
-	interface Think_Input {
+if (!interface_exists('Think_Input')) {
+    /**
+     * Contract for input render.
+     *
+     * Interface Think_Input
+     */
+    interface Think_Input
+    {
         /**
-         * Get unique id of input
+         * Get unique id of input.
          *
          * @return mixed
          */
-	    public function get_id();
+        public function get_id();
 
         /**
-         * Get label of input
+         * Get label of input.
          *
          * @return mixed
          */
-		public function get_label();
+        public function get_label();
 
         /**
-         * Get options for input
+         * Get options for input.
          *
          * @return mixed
          */
-		public function get_options();
+        public function get_options();
 
         /**
-         * Get value of input
+         * Get value of input.
          *
          * @return mixed
          */
-		public function get_value();
+        public function get_value();
 
         /**
-         * Render html
+         * Render html.
          *
          * @return string
          */
-		public function render();
-	}
+        public function render();
+    }
 }
