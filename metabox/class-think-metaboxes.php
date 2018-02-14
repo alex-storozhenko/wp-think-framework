@@ -252,7 +252,9 @@ if ( ! class_exists( 'Think_Metaboxes' ) ) {
 		 *
 		 * @param int $post_id
 		 *
-		 * @return int
+         * @return int
+		 *
+         * @throws Think_Exception_Bad_Args_For_Called_Func|Think_Call_Unexpected_Method_Exception
 		 */
 		protected function save( $post_id ) {
 			$meta = ( empty( $_POST[ $this->meta_key ] ) ? array() : $_POST[ $this->meta_key ] );

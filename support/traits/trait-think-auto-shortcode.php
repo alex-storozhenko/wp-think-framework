@@ -14,7 +14,7 @@ if ( ! trait_exists( 'Think_Auto_Shortcode' ) ) {
 	 */
 	trait Think_Auto_Shortcode {
 		public function shortcodes_register() {
-			$r_api   = new \ReflectionClass( static::class );
+			$r_api   = new \ReflectionClass( get_class($this) );
 			$methods = $r_api->getMethods();
 
 			if ( ! empty( $methods ) ) {
@@ -24,7 +24,7 @@ if ( ! trait_exists( 'Think_Auto_Shortcode' ) ) {
 					if ( preg_match( "/^shortcode_/i", $method_name ) ) {
 						$shortcode_name = Think_Helper::cut_prefix( $method_name );
 
-						add_shortcode( $shortcode_name, [ static::class, $method_name ] );
+						add_shortcode( $shortcode_name, [ $this, $method_name ] );
 					}
 				}
 			}
