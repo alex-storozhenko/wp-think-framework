@@ -71,3 +71,7 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Add comments to contract
 * Fix small bugs in metabox factory
 * Add ob in option page template
+
+= 1.14.2 =
+* Bugfix
+* Correct license slug in composer.json

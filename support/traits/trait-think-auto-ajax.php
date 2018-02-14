@@ -14,8 +14,8 @@ if (!trait_exists('Think_Auto_Ajax')) {
     {
         public function ajax_register()
         {
-            $r_api = new \ReflectionClass(static::class);
-            $methods = $r_api->getMethods();
+           $r_api   = new \ReflectionClass( get_class($this) );
+			     $methods = $r_api->getMethods();
 
             if (!empty($methods)) {
                 foreach ($methods as $method) {
@@ -25,8 +25,8 @@ if (!trait_exists('Think_Auto_Ajax')) {
                         $action_name = 'wp_ajax_'.Think_Helper::cut_prefix($methodName);
                         $action_nopriv_name = 'wp_ajax_nopriv_'.Think_Helper::cut_prefix($methodName);
 
-                        add_action($action_name, [static::class, $methodName]);
-                        add_action($action_nopriv_name, [static::class, $methodName]);
+                        add_action( $action_name, [ $this, $methodName ] );
+						            add_action( $action_nopriv_name, [ $this, $methodName ] );
                     }
                 }
             }
