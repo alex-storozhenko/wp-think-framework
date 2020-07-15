@@ -1,83 +1,81 @@
 <?php
-if (!class_exists('Think_Options_Page_Template')) {
-    /**
-     * Render template of custom theme options page.
-     *
-     * Class Think_Theme_Page_Template
-     */
-    class Think_Options_Page_Template implements Think_Template
-    {
-        /**
-         * Render theme_page.
-         *
-         * @param array $data ['slug' => $slug]
-         *
-         * @throws Think_Exception_Bad_Args_For_Called_Func
-         *
-         * @return string
-         */
-        public static function render(array $data)
-        {
-            if (empty($data['slug'])) {
-                throw new Think_Exception_Bad_Args_For_Called_Func('Required argument "slug" don\'t exist or empty');
-            }
+if ( ! class_exists( 'Think_Options_Page_Template' ) ) {
+	/**
+	 * Render template of custom theme options page.
+	 *
+	 * Class Think_Theme_Page_Template
+	 */
+	class Think_Options_Page_Template implements Think_Template {
+		/**
+		 * Render theme_page.
+		 *
+		 * @param array $data ['slug' => $slug]
+		 *
+		 * @return string
+		 * @throws Think_Exception_Bad_Args_For_Called_Func
+		 *
+		 */
+		public static function render( array $data ) {
+			if ( empty( $data['slug'] ) ) {
+				throw new Think_Exception_Bad_Args_For_Called_Func( 'Required argument "slug" don\'t exist or empty' );
+			}
 
-            ob_start();
+			ob_start();
 
-            $slug = $data['slug'];
-            $options_key = $data['options_key']; ?>
+			$slug        = $data['slug'];
+			$options_key = $data['options_key']; ?>
             <div class="wrap custom_theme_options">
-                <h2><?= __('Edit Options', 'wp-think-framework') ?></h2>
+                <h2><?= __( 'Edit Options', 'wp-think-framework' ) ?></h2>
 
-	            <?php
-                global $wp_settings_sections, $wp_settings_fields;
+				<?php
+				global $wp_settings_sections, $wp_settings_fields;
 
-            if (!isset($wp_settings_sections[$slug])) {
-                return;
-            } ?>
+				if ( ! isset( $wp_settings_sections[ $slug ] ) ) {
+					return;
+				} ?>
 
                 <h2 class="nav-tab-wrapper">
 					<?php
-                    $count = 0;
+					$count = 0;
 
-            foreach ((array) $wp_settings_sections[$slug] as $id => $section) {
-                ?><a class="nav-tab <?= ($count === 0) ? 'nav-tab-active' : '' ?>" href="javascript:;"
+					foreach ( (array) $wp_settings_sections[ $slug ] as $id => $section ) {
+						?><a class="nav-tab <?= ( $count === 0 ) ? 'nav-tab-active' : '' ?>" href="javascript:;"
                              data-tab="<?= $id ?>"><?= $section['title'] ?></a>
 						<?php
-                        $count++;
-            } ?>
+						$count ++;
+					} ?>
                 </h2>
 
                 <div id="tabs" class="tabs">
                     <form method="POST" action="<?= 'options.php'; ?>">
 						<?php
-                        foreach ((array) $wp_settings_sections[$slug] as $id => $section) {
-                            if ($section['callback']) {
-                                call_user_func($section['callback'], $section);
-                            }
+						foreach ( (array) $wp_settings_sections[ $slug ] as $id => $section ) {
+							if ( $section['callback'] ) {
+								call_user_func( $section['callback'], $section );
+							}
 
-                            if (!isset($wp_settings_fields) || !isset($wp_settings_fields[$slug]) || !isset($wp_settings_fields[$slug][$section['id']])) {
-                                continue;
-                            } ?>
+							if ( ! isset( $wp_settings_fields ) || ! isset( $wp_settings_fields[ $slug ] ) || ! isset( $wp_settings_fields[ $slug ][ $section['id'] ] ) ) {
+								continue;
+							} ?>
                             <section class="tab_content" id="<?= $id ?>">
                                 <table class="form-table">
-	                                <?php
-                                    do_settings_fields($slug, $section['id']);
-                            settings_fields($options_key.'_'.$section['id']); ?>
+									<?php
+									do_settings_fields( $slug, $section['id'] );
+									settings_fields( $options_key . '_' . $section['id'] ); ?>
                                 </table>
                             </section>
 							<?php
-                        }
+						}
 
-            submit_button(); ?>
+						submit_button(); ?>
                     </form>
                 </div>
             </div>
 			<?php
 
-            $content = ob_end_flush();
+			$content = ob_end_flush();
 
-            return $content;
-        }
-    }
+			return $content;
+		}
+	}
 }
