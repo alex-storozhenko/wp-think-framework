@@ -22,7 +22,7 @@ if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Cu
 		/** {@inheritdoc} */
 		public function render_content() {
 			?>
-            <div class="wp-think-framework <?php echo str_snake_to_kebab( get_class( $this ) ); ?> customizer-input-area customizer-input-area-tinyMCE customizer-input-area-tinyMCE-<?php echo $this->id . ' ' . str_snake_to_kebab( get_class( $this ) ); ?>">
+            <div class="wp-think-framework <?php echo Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?> customizer-input-area customizer-input-area-tinyMCE customizer-input-area-tinyMCE-<?php echo $this->id . ' ' . Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>">
                 <div class="wp-think-framework customizer-input-description customizer-input-description-tinyMCE customizer-input-description-tinyMCE-<?php echo $this->id; ?>"><?php echo esc_attr( $this->description ); ?></div>
                 <label class="wp-think-framework customizer-label-input customizer-label-input-tinyMCE customizer-label-input-tinyMCE-<?php echo $this->id; ?>">
 					<?php
@@ -38,7 +38,7 @@ if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Cu
 						'quicktags'        => true,
 						'textarea_rows'    => 5,
 					) ); ?>
-                    <span class="wp-think-framework customizer-label-title customizer-label-title-tinyMCE customizer-label-title-tinyMCE-<?php echo str_snake_to_kebab( get_class( $this ) ); ?>"><?php echo esc_html( $this->label ); ?></span>
+                    <span class="wp-think-framework customizer-label-title customizer-label-title-tinyMCE customizer-label-title-tinyMCE-<?php echo Think_Helper::str_snake_to_kebab( get_class( $this ) ); ?>"><?php echo esc_html( $this->label ); ?></span>
                 </label>
             </div>
 			<?php
