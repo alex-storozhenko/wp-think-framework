@@ -7,7 +7,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require __DIR__ . '/utility/autoload.php';
 
 /* @const string version of framework */
-define( 'THINK_FRAMEWORK_VERSION', '1.14.0' );
+define( 'THINK_FRAMEWORK_VERSION', '1.14.x' );
 
 if ( ! class_exists( 'Think_Framework' ) ) {
 	/**

@@ -76,7 +76,8 @@ WordPress Think Framework gives you the ability to quickly and easily create inc
 * Bugfix
 * Correct license slug in composer.json
 
-= 1.14.4 =
+= 1.14.5 =
 
+* Fix critical errors
 * Bugfix
 * Codestyle changes

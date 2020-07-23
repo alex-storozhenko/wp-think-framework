@@ -229,9 +229,9 @@ if ( ! class_exists( 'Think_Customizer' ) ) {
 			wp_enqueue_script( 'wp-think-framework-customizer', get_stylesheet_directory_uri() . '/inc/customizer/assets/js/customizer.preview.js', [
 				'jquery',
 				'customize-preview',
-			], VERSION, true );
+			], THINK_FRAMEWORK_VERSION, true );
 
-			wp_localize_script( 'wp-think-framework-customizer', str_snake_to_camel( get_class( $this ) ), [
+			wp_localize_script( 'wp-think-framework-customizer', Think_Helper::str_snake_to_camel( get_class( $this ) ), [
 				'structure' => $this->structure,
 			] );
 		}
