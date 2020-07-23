@@ -47,7 +47,7 @@ if ( ! class_exists( 'Think_Customize_TinyMCE_Control' ) && class_exists( 'WP_Cu
 
 		/** Enqueue special assets */
 		protected function enqueue_assets() {
-			wp_enqueue_script( 'wp-editor-customizer', get_stylesheet_directory_uri() . '/inc/customizer/assets/js/customizer.tiny-mce.js', array( 'jquery' ), VERSION, true );
+			wp_enqueue_script( 'wp-editor-customizer', get_stylesheet_directory_uri() . '/inc/customizer/assets/js/customizer.tiny-mce.js', array( 'jquery' ), THINK_FRAMEWORK_VERSION, true );
 		}
 	}
 }
